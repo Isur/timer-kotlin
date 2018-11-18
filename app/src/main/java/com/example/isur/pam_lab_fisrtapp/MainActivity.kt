@@ -80,7 +80,7 @@ var timer = Timer()
                         r.stop()
                         buttonStopSound.visibility = View.INVISIBLE
                     }
-                    r.
+
                 }
             }
 
