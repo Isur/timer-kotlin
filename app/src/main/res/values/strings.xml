@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PAM-LAB-FisrtAPp</string>
+    <string name="colon">:</string>
+    <string name="Increment">+</string>
+    <string name="Decrement">-</string>
+    <string name="defaultZero">0</string>
+    <string name="stop_sound">STOP SOUND</string>
+</resources>

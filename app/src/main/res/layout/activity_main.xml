@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textMinUnit"
+            android:layout_toStartOf="@id/textMinUnit"
+            android:layout_alignBottom="@id/textColon"
+            android:textSize="60sp"
+            android:text="@string/defaultZero" />
+        <TextView
+            android:id="@+id/textMinUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textColon"
+            android:layout_toStartOf="@id/textColon"
+            android:layout_alignBottom="@id/textColon"
+            android:textSize="60sp"
+            android:text="@string/defaultZero" />
+
+        <TextView
+            android:id="@+id/textSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textColon"
+            android:layout_toEndOf="@id/textColon"
+            android:layout_alignBottom="@id/textColon"
+            android:textSize="60sp"
+            android:text="@string/defaultZero" />
+        <TextView
+            android:id="@+id/textSecUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textSec"
+            android:layout_toEndOf="@id/textSec"
+            android:layout_alignBottom="@id/textColon"
+            android:textSize="60sp"
+            android:text="@string/defaultZero" />
+
+
+
+        <TextView
+            android:id="@+id/textColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="60sp"
+            android:text="@string/colon" />
+
+        <Button
+            android:id="@+id/buttonAddMin"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_above="@id/textColon"
+            android:layout_alignRight="@id/textMin"
+            android:layout_alignEnd="@id/textMin"
+            android:text="@string/Increment" />
+
+
+        <Button
+            android:id="@+id/buttonSubMin"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_alignEnd="@id/textMin"
+            android:layout_alignRight="@id/textMin"
+            android:layout_below="@id/textMin"
+            android:text="@string/Decrement" />
+
+        <Button
+            android:id="@+id/buttonAddMinUnit"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_above="@id/textMinUnit"
+            android:layout_alignLeft="@id/textMinUnit"
+            android:layout_alignStart="@id/textMinUnit"
+            android:text="@string/Increment" />
+
+
+        <Button
+            android:id="@+id/buttonSubMinUnit"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/textMinUnit"
+            android:layout_alignLeft="@id/textMinUnit"
+            android:layout_alignStart="@id/textMinUnit"
+            android:text="@string/Decrement" />
+
+        <Button
+            android:id="@+id/buttonAddSec"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_above="@id/textColon"
+            android:layout_alignRight="@id/textSec"
+            android:layout_alignEnd="@id/textSec"
+            android:text="@string/Increment" />
+
+
+        <Button
+            android:id="@+id/buttonSubSec"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/textSec"
+            android:layout_alignRight="@id/textSec"
+            android:layout_alignEnd="@id/textSec"
+            android:text="@string/Decrement" />
+
+        <Button
+            android:id="@+id/buttonAddSecUnit"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_above="@id/textSecUnit"
+            android:layout_alignStart="@id/textSecUnit"
+            android:layout_alignLeft="@id/textSecUnit"
+            android:text="@string/Increment" />
+
+
+        <Button
+            android:id="@+id/buttonSubSecUnit"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/textSecUnit"
+            android:layout_alignStart="@id/textSecUnit"
+            android:layout_alignLeft="@id/textSecUnit"
+            android:text="@string/Decrement" />
+
+        <Button
+            android:id="@+id/buttonStopSound"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/buttonSubSec"
+            android:layout_centerInParent="true"
+            android:text="@string/stop_sound"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="START"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="76dp" />
+
+            <Button
+                android:id="@+id/buttonStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="STOP" />
+
+            <Button
+                android:id="@+id/buttonPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PAUSE" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
