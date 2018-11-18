@@ -1,20 +1,49 @@
 package com.example.isur.pam_lab_fisrtapp
 
-class Timer(var min:Int = 0,
+import android.media.Ringtone
+import android.os.Handler
+import kotlinx.android.synthetic.main.activity_main.*
+
+
+class Timer(var view: MainActivity,
+            var ringtone: Ringtone? = null,
+            var min:Int = 0,
             var minUnit: Int = 0,
             var sec:Int = 0,
             var secUnit:Int = 0,
             var running: Boolean = false,
-            var stop: Boolean = false){
+            var stop: Boolean = false) : Runnable{
 
+    private val handler = Handler()
+
+    override fun run(){
+        if(!stop && running){
+            decrementSecUnit()
+            handler.postDelayed(this, 1000)
+        }
+    }
+
+    fun viewUpdate(){
+        view.textMin.text = min.toString()
+        view.textMinUnit.text = minUnit.toString()
+        view.textSec.text = sec.toString()
+        view.textSecUnit.text = secUnit.toString()
+    }
+
+    fun stopSound(){
+        ringtone?.stop()
+    }
 
     fun start(){
         running = true
         stop = false
+        view.buttonsEnabled(running)
+        run()
     }
 
     fun pause(){
         running = false
+        view.buttonsEnabled(running)
     }
 
     fun stop(){
@@ -24,10 +53,20 @@ class Timer(var min:Int = 0,
         secUnit = 0
         running = false
         stop = true
+        stopSound()
+        view.buttonsEnabled(running)
+        viewUpdate()
+    }
+
+    private fun endOfTimer(){
+        stop()
+        ringtone?.play()
+        view.stopSoundButton()
     }
 
     fun incrementMin(){
         if(min < 9) min++
+        viewUpdate()
     }
 
     fun incrementMinUnit(){
@@ -36,6 +75,8 @@ class Timer(var min:Int = 0,
             incrementMin()
             minUnit = 0
         }
+
+        viewUpdate()
     }
 
     fun incrementSec(){
@@ -44,6 +85,7 @@ class Timer(var min:Int = 0,
             incrementMinUnit()
             sec = 0
         }
+        viewUpdate()
     }
 
     fun incrementSecUnit(){
@@ -52,10 +94,12 @@ class Timer(var min:Int = 0,
             secUnit = 0
             incrementSec()
         }
+        viewUpdate()
     }
 
     fun decrementMin(){
         if(min > 0) min--
+        viewUpdate()
     }
 
     fun decrementMinUnit(){
@@ -64,6 +108,7 @@ class Timer(var min:Int = 0,
             decrementMin()
             minUnit = 9
         }
+        viewUpdate()
     }
 
     fun decrementSec(){
@@ -72,6 +117,7 @@ class Timer(var min:Int = 0,
             sec = 5
             decrementMinUnit()
         }
+        viewUpdate()
     }
 
     fun decrementSecUnit(){
@@ -79,7 +125,9 @@ class Timer(var min:Int = 0,
         else if(sec > 0 || minUnit > 0 || min > 0){
             secUnit = 9
             decrementSec()
-        }else stop = true
+        }else if(running){
+           endOfTimer()
+        }
+        viewUpdate()
     }
-
 }
