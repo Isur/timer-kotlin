@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PAM-LAB-FisrtAPp</string>
+    <string name="app_name">Timer</string>
     <string name="colon">:</string>
     <string name="Increment">+</string>
     <string name="Decrement">-</string>
