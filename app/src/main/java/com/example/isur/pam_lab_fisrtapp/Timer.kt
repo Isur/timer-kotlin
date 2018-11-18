@@ -14,7 +14,7 @@ class Timer(var view: MainActivity,
             var running: Boolean = false,
             var stop: Boolean = false) : Runnable{
 
-    private val handler = Handler()
+    val handler = Handler()
 
     override fun run(){
         if(!stop && running){

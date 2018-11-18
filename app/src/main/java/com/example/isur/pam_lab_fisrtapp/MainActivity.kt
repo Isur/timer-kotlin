@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private var timer = Timer(this)
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-
+        timer.handler.removeCallbacks(timer)
         val min = timer.min.toString()
         val minUnit = timer.minUnit.toString()
         val sec = timer.sec.toString()
